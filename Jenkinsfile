@@ -1,7 +1,5 @@
 stage('stage1') {
-when {
-environment name: 'STATUS', value: 'true'
-}
+
 steps {
             echo 'stage1'
             script{
@@ -10,9 +8,7 @@ steps {
 }
 }
 stage('stage2') {
-when {
-environment name: 'STATUS', value: 'false'
-}
+
 steps {
             echo 'stage2'
             script{
@@ -23,9 +19,7 @@ steps {
 }
 }
 stage('stage3') {
-when {
-environment name: 'STATUS', value: 'false'
-}
+
 steps {
             echo 'stage3'
             script{
