@@ -70,6 +70,7 @@ pipeline {
             choices: ['greeting' , 'silence'],
             description: '',
             name: 'REQUESTED_ACTION')
+			choice(choices: getData2(), description: '',name: 'REQUESTED_ACTION2')
     }
     stages {
         stage('Stage 1') {
@@ -93,4 +94,15 @@ pipeline {
             }
         }
     }
+}
+def utilModule
+agent {
+    checkout scm 
+    def rootDir = pwd()
+    utilModule  = load "${rootDir}/jenkins/util.Groovy"
+    utilModule.printHello()
+}
+def getData2() {
+		List devList  = ["Select:selected", "dev1", "dev2"]
+   return devList
 }
